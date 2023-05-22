@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>formulario</title>
+	<style type="text/css">
+		form { margin:50px; padding:20px;border:1px solid black;}
+		input { margin:5px;}
+		body{background-color:#3399FF;color:#993333;}
+	</style>
+</head>
+<body>
+<!-- Formulario1 -->
+	<h1>Pulsa aquí para ver todos los empleados</h1>
+	<form action="emple_all.php" method="GET">
+		<input type="submit" value="Consultar"/>
+	</form>
+	<!-- Formulario2 -->
+	<h1>Cubre estos campos para consultar los datos del empleado que tu pongas</h1>
+	<form action="emple.php" method="GET">
+		<label for="Nombre">Nombre</label>
+		<input type="text" name="Nombre" value="" /> <br />
+		<label for="apel1"> Primer Apelllido</label>
+		<input type="text" name="apel1" value="" /><br />
+		<label for="apel2"> Segundo Apelllido</label>
+		<input type="text" name="apel2" value="" /><br />
+		<label for="Sexo">Sexo</label>
+		<select name="sexo">
+			<option value="M">M</option>
+			<option value="F">F</option>
+		</select><br>
+		<input type="submit" value="Consultar"/>
+	</form>
+	<!-- Formulario3 -->
+	<h1>Pulsa aquí para ver los empleados que están de cummpleaños el mes actual</h1>
+	<form action="cumple_emple.php" method="GET">
+		<input type="submit" value="Consultar"/>
+	</form>
+	<!-- Formulario4 -->
+	<h1>Pon aquí el salario para consultar los empleados que tengan salario mayor que el que pongas</h1>
+	<form action="salario.php" method="GET">
+		Salario <input type="number" name="Salario" min="120000" max="420000" value="120000"><br/>
+		<input type="submit" value="Consultar"/>
+	</form>
+	<!-- Formulario5 -->
+	<h1>Pulsa para ver los departamentos </h1>
+	<form action="depts.php" method="GET">
+		<input type="submit" value="Consultar" />
+	</form>
+	
+</body>
+</html>

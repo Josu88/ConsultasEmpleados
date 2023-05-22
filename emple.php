@@ -18,20 +18,19 @@
 		$pass = "root";      //seleccionamos la password
 		$database = "empleados";   //seleccionamos la BD
     
-    //abrimos la conexion
-    $conexion = @mysqli_connect($server, $user, $pass, $database);
-
-	  if (mysqli_connect_errno($conexion)) {  //comprobamos la conexión
-	  	echo "Fallo de conexión: \n" .mysqli_connect_error($conexion);
-	  } else {
-
+    
+	//abrimos la conexion
+	mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+	$conection = new mysqli($server, $user, $pass, $database);
+		
+	
 		//Para que use la codificación de caracteres UTF8 al realizar la consulta
-	  	mysqli_query($conexion,"set names'UTF8'");
+			  mysqli_query($conection,"set names'UTF8'");
 
 
 		//Realizamos la consulta
 	  	$consulta = "SELECT * FROM empleado where Nombre='$non' and Apel1='$ape1' and Apel2='$ape2' and Sexo='$sexo'";
-	  	if($res = mysqli_query($conexion,$consulta)){
+	  	if($res = mysqli_query($conection,$consulta)){
 
 	  		//Para ver el total de empleados de la consulta
 	  		$total=mysqli_num_rows($res);
@@ -73,10 +72,10 @@
            	echo "El campo apel2 está vacío<br>";
            }
            //Cerramos la conexión
-           if (!mysqli_close($conexion)) {
+           if (!mysqli_close($conection)) {
            	echo "Error al cerrar la conexión<br>";
            }
-       }
+       
        ?>
        <br>
        <!-- Enlace al formulario principal -->

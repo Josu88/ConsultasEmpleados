@@ -16,19 +16,18 @@
 		$pass = "root";      //seleccionamos la password
 		$database = "empleados";   //seleccionamos la BD
     
-    //abrimos la conexion
-    $conexion = @mysqli_connect($server, $user, $pass, $database);
-
-      if (mysqli_connect_errno($conexion)) {  //comprobamos la conexión
-      	echo "Fallo de conexión: \n" .mysqli_connect_error($conexion);
-      } else {
+	
+	//abrimos la conexion
+	mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+	$conection = new mysqli($server, $user, $pass, $database);
+    
 
 	//Para que use la codificación de caracteres UTF8 al realizar la consulta
-      	mysqli_query($conexion,"set names'UTF8'");
+	  	mysqli_query($conection,"set names'UTF8'");
 
 	//Realizamos la consulta
       	$consulta = "SELECT * FROM empleado where salario>$salario";
-      	if($res = mysqli_query($conexion, $consulta)){
+      	if($res = mysqli_query($conection, $consulta)){
 
 		//Comprobación de campos vacios
       		if (empty($_GET['Salario'])) {
@@ -38,7 +37,7 @@
 		//Para ver el total de empleados de la consulta
       		$total=mysqli_num_rows($res);
 
-	//Creamos la tabla
+		//Creamos la tabla
       		echo "<table border='1'><tr><td ALIGN='CENTER'>NSS</td><td ALIGN='CENTER'>Nombre</td><td ALIGN='CENTER'>Apellido1</td><td ALIGN='CENTER'>Dirección</td><td ALIGN='CENTER'>Sexo</td><td ALIGN='CENTER'>Salario</td></tr>";
 
       		while($dato=mysqli_fetch_array($res)){
@@ -57,10 +56,10 @@
                echo "La Tabla está vacia"; //Se muestra si no hay datos en la tabla
              }
           	 //Cerramos la conexión
-             if (!mysqli_close($conexion)) {
+             if (!mysqli_close($conection)) {
               echo "Error al cerrar la conexión";
             }
-          }
+          
           ?>
           <br>
           <!-- Enlace al formulario principal -->

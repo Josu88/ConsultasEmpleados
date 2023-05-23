@@ -6,15 +6,22 @@
 </head>
 <body>
 	<table border="1">
-		<?php
+		<?php	
+	//usar composer
+	require('./vendor/autoload.php');
+
+	// __DIR__ location of the .env file
+	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+	$dotenv->load();
+
 	//Definimos las variables para conectar el formulario con el php
-		$salario = $_GET["Salario"];	
-		
-		//Definimos las variables para la conexion a la base de datos mysql
-		$server = "localhost";  //seleccionamos el servidor
-		$user = "root";         //seleccionamos el usuario 
-		$pass = "root";      //seleccionamos la password
-		$database = "empleados";   //seleccionamos la BD
+	$salario = $_GET["Salario"];
+
+	//Definimos las variables para la conexion a la base de datos mysql
+	$server = $_ENV['DB_HOST']; //seleccionamos el servidor
+    $user = $_ENV['DB_USER'];         //seleccionamos el usuario 
+    $pass = $_ENV['DB_PASSWORD'];      //seleccionamos la password
+    $database =  $_ENV['DB_DATABASE'];  
     
 	
 	//abrimos la conexion

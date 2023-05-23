@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>formulario</title>
-	<style type="text/css">
-		form { margin:50px; padding:20px;border:1px solid black;}
-		input { margin:5px;}
-		body{background-color:#339933;color:#CCFF33;}
-	</style>
-</head>
-<body>
-	<h1>Elije el departamento para ver los empleados</h1>
-	<form action="ver_emp_dept.php" method="GET">
-		Departamento <input type="number" name="Departamento" min="1" max="3" value="1"><br/>
-		<input type="submit" valor="Consultar"/>
-	</form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>formulario</title>
+    <style type="text/css">
+      form {
+        margin: 50px;
+        padding: 20px;
+        border: 1px solid black;
+      }
+      input {
+        margin: 5px;
+      }
+      body {
+        background-color: #339933;
+        color: #ccff33;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Elige el departamento para ver los empleados</h1>
+    <form action="ver_emp_dept.php" method="GET">
+      Departamento
+      <input
+        type="number"
+        name="Departamento"
+        min="1"
+        max="3"
+        value="1"
+      /><br />
+      <input type="submit" valor="Consultar" />
+    </form>
+  </body>
 </html>

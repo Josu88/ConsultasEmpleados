@@ -1,5 +1,18 @@
 {
+    "name": "velve/consultas-empleados",
+    "autoload": {
+        "psr-4": {
+            "Velve\\ConsultasEmpleados\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Josu88",
+            "email": "jri53268805@gmail.com"
+        }
+    ],
     "require": {
-        "vlucas/phpdotenv": "^5.5"
+        "m1/env": "^2.2",
+        "vlucas/phpdotenv": "^5.6"
     }
 }
